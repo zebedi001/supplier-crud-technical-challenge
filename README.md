@@ -11,18 +11,6 @@ Since late August 2026 after work, I have been working on a Purchase Ledger fina
 
   2. To improve the output by making it more responsive, no matter the type of technology used - Responsive Web Design (RWD). These improvements          will be to the sidebar and main container screens. I hope to make the sidebar open or closed when the mouse is moved to the left of the screen,      and have a button that allows a user to click a box and keep the sidebar in view. I use two methods to navigate around Purchase Web. The             sidebar and a spider web ends at West, North West, North, North East, East, South, and two links at the centre, one for returning to the             main menu and the other a link to Mara AI Assistant. These links are currently out of position, and do not stay in position when                     zooming in and out, or for different screens, such as iPads and mobiles. I intend to make sure they are fixed.
 
-Improvements for the future:
-  I did think about implementing a Cloud storage for the challenge, but having re-read the email it specifically asked for inputing code and
-  outputing that code in a presentable way for users. However, I have already set up and installed 'Superbase' app cloud storage and authorised it
-  on GitHub for supplier-crud-technical-challenge repository. The code will ensure synchronisation between the database on the MacOs and in the 
-  cloud. If there isn't a current connection the update will be queued until reconnected.
-
-  Complete the error checking for Authorisation.py login and password security and related code in App.py and other files.
-
-  Complete Suppliers.
-  
-  Then start Purchases, Payments, Ledger, Reports, Settings and Mara AI Assistant.
-
 
 # ----------------------------------------
 # How to run it
@@ -37,11 +25,12 @@ In Visual Code open App.py and run it from the right facing triangle icon on the
 # ----------------------------------------
 
 
-# -----------------------
+# ----------------------------------------
 # What you would improve with more time
-#------------------------
+# ----------------------------------------
 
 Improvements for the future:
+
   I did think about implementing a Cloud storage for the challenge, but having re-read the email it specifically asked for inputing code and
   outputing that code in a presentable way for users. However, I have already set up and installed 'Superbase' app cloud storage and authorised it
   on GitHub for supplier-crud-technical-challenge repository. The code will ensure synchronisation between the database on the MacOs and in the 
