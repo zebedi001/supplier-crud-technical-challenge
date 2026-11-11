@@ -1,8 +1,9 @@
 # supplier-crud-technical-challenge
 A Python Flask and PostgreSQL supplier management application demonstrating CRUD operations and local-to-cloud database synchronisation.
 
-# -------------------------
-What you built and why?
+# -----------------------
+# What you built and why?
+#------------------------
 
 Since late August 2026 after work, I have been working on a Purchase Ledger financial system called Purchase Web.  This is a personal project in order to re-learn various modern and old coding languages (graduated with my Computing degree in 1995), and utilising development tools. It is a basic stack configuration containing suppliers, purchases, payments, ledger, reports, settings, and an AI Assistant called Mara to assist in reporting via NLP.  I have nearly completed the full architecture in terms of connections through Flask backend and frontend.  The Supplier section is fully working in a basic fashion with CRUD operations which originally wrote to SQLite3, but now transitioned to using PostgreSQL. The basic stack currently utilises: Python | Flask | PostgreSQL | HTML | CSS | Jinja2 | JavaScript, using DevOps Visual Code | GitHub | Bash. I have duplicated my Purchase_Ledger folder and called it supplier-crud-technical-challenge, and have hashed out the Authorisation.py related code I was working on in App.py and other files that may be applicable to get suppliers ready for the challenge.
 
@@ -14,6 +15,7 @@ For this Technical Challenge I have decided to utilise the Supplier section and 
 Improvements for the future:
   I did think about implementing a Cloud storage for the challenge, but having re-read the email it specifically asked for inputing code and
   outputing that code in a presentable way for users. However, I have already set up and installed 'Superbase' app cloud storage and authorised it   
-  for supplier-crud-technical-challenge repository. The code will ensure synchronisation between the database on the Macos and in the cloud. If 
+  on GitHub for supplier-crud-technical-challenge repository. The code will ensure synchronisation between the database on the Macos and in the 
+  cloud. 
   there is not current connection the update will be queued until reconnected. 
   4. Incorporate an online Cloud storage, so when a supplier is added, amended or deleted, the PostgreSQL database in the cloud is also updated. I        intend to try and use synchronisation to ensure the update, even if a connection is not available at the time, and queued for update later. 
