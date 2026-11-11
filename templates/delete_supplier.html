@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Supplier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='sidebar.css') }}">
+</head>
+
+<body>
+    
+    <!-- 1. Divide screen into Sidebar + Main CONTENT -->
+    <div class="page-container">
+        
+        <!-- 2. Left Side Navigation Menu" -->
+        {% include "sidebar_supplier.html" %}
+      
+        <!-- 3. Right Side Menu Content -->
+        <main class="main-content">
+            <h3>Delete Supplier</h3><br>
+
+            {% if message %}
+            <p>{{ message }}</p>
+            {% endif %}
+
+            <!-- FIND SUPPLIER -->
+            <form action="/delete_supplier" method="GET">
+                
+                <div class="deleteform-columns">
+
+                    <label>Id:</label>
+                    <input type="number" name="supplier_id">
+
+                </div>
+
+                <div>
+                    <br><br>    
+                    <button type="submit">Submit Id</button>
+                    <button type="button">Cancel</button>
+                </div>
+            
+            </form>
+
+            <!-- DISPLAY SUPPLIER READY FOR DELETION -->
+            {% if row %}
+            <br><br>
+            <h3>Supplier Found</h3><br>
+
+            <form action="/delete_supplier" method="POST">
+
+                <div class="deleteform-columns">
+
+                    <label> Id </label>
+                    <input
+                        type="number"
+                        name="supplier_id"
+                        value="{{ row[0] }}"
+                        readonly
+                    >
+
+                    <label> Name </label>
+                    <input
+                        type="text"
+                        name="name"
+                        value="{{ row[1] }}"
+                    >
+
+                    <label> Account No </label>
+                    <input
+                        type="text"
+                        name="account"
+                        value="{{ row[2] }}"
+                    >
+
+                    <br><br>
+                    <label> Terms (Days) </label>
+                    <input
+                        type="number"
+                        name="terms"
+                        value="{{ row[3] }}"
+                    >
+
+                    <label> First Line </label>
+                    <input
+                        type="text"
+                        name="street"
+                        value="{{ row[4] }}"
+                    >
+
+                    <label> Town </label>
+                    <input
+                        type="text"
+                        name="town"
+                        value="{{ row[5] }}"
+                    >
+
+                    <br><br>
+                    <label> City </label>
+                    <input
+                        type="text"
+                        name="city"
+                        value="{{ row[6] }}"
+                    >
+
+                    <label> Postcode </label>
+                    <input
+                        type="text"
+                        name="postcode"
+                        value="{{ row[7] }}"
+                    >
+
+                    <br><br>
+                    <label> Contact Name </label>
+                    <input
+                        type="text"
+                        name="contactname"
+                        value="{{ row[8] }}"
+                    >
+
+                    <label> Contact Number </label>
+                    <input
+                        type="text"
+                        name="contactnum"
+                        value="{{ row[9] }}"
+                    >
+
+                </div>
+
+                <div>
+                    <br><br>
+                    <button type="submit" onclick="return confirm('Want to delete this supplier?')">Delete Supplier</button>
+                    <button type="button">Cancel</button>
+                </div>
+
+            </form>
+
+            {% endif %}
+
+        </main>
+    </div>
+</body>
+</html>

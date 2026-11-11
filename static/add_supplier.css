@@ -1,0 +1,26 @@
+
+/* CENTRE BACK BUTTON ON THE PAGE */
+.supplier-menu {
+    text-align: center;
+    font-size: 1rem;
+}
+
+h1, h2 h3 {
+    text-align: center;
+}
+
+.addform-columns {
+    display: grid;
+    grid-template-columns: max-content 1fr max-content 1fr;
+    gap: 15px 30px;
+    max-width: 850px;
+}
+
+.supplier-menu a {
+    text-decoration: none;
+}
+
+.button-area {
+    width: 100%;
+    text-align: center;
+}

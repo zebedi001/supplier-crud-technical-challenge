@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>View Purchase Order</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='sidebar.css') }}">
+</head>
+
+<body>
+    
+    <!-- 1. Divide screen into Sidebar + Main CONTENT -->
+    <div class="page-container">
+        
+        <!-- 2. Left Side Navigation Menu" -->
+        {% include "sidebar_purchases.html" %}
+      
+        <!-- 3. Right Side Menu Content -->
+        <main class="main-content">
+            <h3>View Purchase Order</h3><br>
+
+            {% if message %}
+            <p>{{ message }}</p>
+            {% endif %}
+
+            
+                
+           
+            
+            
+        </main>    
+    </div>   
+
+</body>
+
+</html>

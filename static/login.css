@@ -1,0 +1,155 @@
+
+/* ========================================
+   PURCHASE WEB - MARA LOGIN PAGE
+   ======================================== */
+
+/* GENERAL PAGE SETTINGS */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    background-color: #000;
+    color: white;
+}
+
+/* CENTRE MARA'S ARTWORK */
+
+.main-content {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+/* RESPONSIVE ARTWORK CONTAINER */
+
+.login-artwork {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    aspect-ratio: 3 / 2;
+    margin: 0 auto;
+}
+
+/* KEEP ORIGINAL IMAGE PROPORTIONS */
+
+.login-artwork img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* FORM OVERLAYS THE ARTWORK */
+
+.login-artwork form {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+}
+
+/* ACCESSIBLE LABELS */
+
+.login-artwork label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+/* SHARED INPUT STYLING */
+
+.login-artwork input {
+    position: absolute;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    background: rgba(5, 30, 29, 0.85);
+    color: white;
+    padding: 0 1%;
+    font-size: clamp(10px, 1.3vw, 16px);
+    outline-offset: 2px;
+}
+
+/* USERNAME FIELD - POSITION UNCHANGED */
+
+.login-artwork #username {
+    left: 34.8%;
+    top: 57.8%;
+    width: 30%;
+    height: 5.2%;
+}
+
+/* PASSWORD FIELD - POSITION UNCHANGED */
+
+.login-artwork #password {
+    left: 34.8%;
+    top: 72%;
+    width: 30%;
+    height: 5.2%;
+}
+
+/* LOGIN BUTTON - INVISIBLE OVER PAINTED BUTTON */
+
+.login-artwork button {
+    position: absolute;
+    left: 31%;
+    top: 81.5%;
+    width: 38.6%;
+    height: 9%;
+
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: transparent;
+
+    font-size: clamp(11px, 1.5vw, 18px);
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.login-artwork button:hover {
+    background: transparent;
+    color: transparent;
+}
+
+/* KEYBOARD ACCESSIBILITY */
+
+.login-artwork input:focus-visible,
+.login-artwork button:focus-visible {
+    outline: 2px solid #49cfa7;
+}
+
+/* SMALLER SCREENS */
+
+@media (max-width: 600px) {
+    .main-content {
+        padding: 0;
+        min-height: 100vh;
+    }
+
+    .login-artwork input {
+        font-size: 10px;
+        padding: 0 4px;
+    }
+
+    .login-artwork button {
+        font-size: 11px;
+        border-radius: 4px;
+    }
+}

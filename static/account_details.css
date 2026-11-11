@@ -1,0 +1,14 @@
+
+/* CENTRE BACK BUTTON ON THE PAGE */
+.supplier-menu {
+    text-align: center;
+    font-size: 1rem;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.supplier-menu a {
+    text-decoration: none;
+}

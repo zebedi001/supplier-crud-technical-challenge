@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Purchase Order</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='sidebar.css') }}">
+</head>
+
+<body>
+    
+    <!-- 1. Divide screen into Sidebar + Main CONTENT -->
+    <div class="page-container">
+        
+        <!-- 2. Left Side Navigation Menu" -->
+        {% include "sidebar_purchases.html" %}
+      
+        <!-- 3. Right Side Menu Content -->
+        <main class="main-content">
+            <h3>Delete Purchase Order</h3><br>
+
+            {% if message %}
+            <p>{{ message }}</p>
+            {% endif %}
+
+              
+            
+            
+            <div>
+                <br><br>    
+                <button type="submit">Confirm Deletion</button>
+                <button type="button">Cancel</button>
+            </div>
+            
+            
+        </main>    
+    </div>   
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AI Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='sidebar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='web_hotspots.css') }}">
+</head>
+
+<body>
+    
+    <!-- 1. Divide screen into Sidebar + Main CONTENT -->
+    <div class="page-container">
+        
+        <!-- 2. Left Side Navigation Menu" -->
+        {% include "sidebar_AI.html" %}
+      
+        <!-- 3. Right Side Menu Content -->
+        <main class="main-content">
+            {% include "main_content_logo.html" %}
+            {% include "web_hotspots.html" %}
+        </main>
+    </div>
+
+</body>
+</html>

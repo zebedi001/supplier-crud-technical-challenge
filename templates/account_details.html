@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sidebar.css') }}">
+</head>
+
+<body>
+
+<!-- 1. Divide screen into Sidebar + Main CONTENT -->
+    <div class="page-container">
+        
+        <!-- 2. Left Side Navigation Menu" -->
+        {% include "sidebar_supplier.html" %}
+      
+        <!-- 3. Right Side Menu Content -->
+        <main class="main-content">
+            <h3>Account Details</h3>
+
+        <table cellspacing="35">
+            <tr>
+                <th>ID</th>
+                <th>Supplier Name</th>
+                <th>Account</th>
+                <th>Terms</th>
+                <th>Contact</th>
+                <th>Number</th>
+            </tr>
+    
+            {% for row in rows %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[8] }}</td>
+                <td>{{ row[9] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+
+/* CENTRE BACK BUTTON ON THE PAGE */
+.supplier-menu {
+    text-align: center;
+    font-size: 1rem;
+}
+
+h1, h2, h3, h4 {
+    text-align: center;
+}
+
+.addform-columns {
+    display: grid;
+    grid-template-columns: max-content 1fr max-content 1fr;
+    gap: 15px 30px;
+    max-width: 850px;
+}
+
+.supplier-menu a {
+    text-decoration: none;
+}
+
+/* Split the screen: 240px side menu, remaining space (1fr) for the form */
+.page-container {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    min-height: 100vh;
+}
+
+/* Style your side column layout space */
+.side-menu {
+    background-color: black; /* A dark theme looks great for sidebars! */
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.side-menu h3 {
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #4f5d73;
+    font-size: 1.2rem;
+}
+
+/* Turn your navigation links into stacked button styles */
+.side-menu nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu-btn {
+    color: white;
+    text-decoration: none;
+    padding: 2px 4px;
+    border-radius: 1px;
+    background-color: #34495e;
+    transition: background 0.2s;
+}
+
+.menu-btn:hover {
+    background-color: #1abc9c; /* Highlights teal on hover */
+}
+
+.menu-btn.active {
+    background-color: #1abc9c; /* Highlights the active page */
+}
+
+/* Center your form contents nicely inside the main right-hand panel */
+.main-content {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.purchase-web-logo { 
+    display:block;
+    width: 100% !important;
+    max-width: 440px !important;
+    height: auto !important;
+    margin: 20px auto; 
+}
