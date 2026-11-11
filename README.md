@@ -3,7 +3,6 @@ A Python Flask and PostgreSQL supplier management application demonstrating CRUD
 
 # ----------------------------------------
 # What you built and why?
-# ----------------------------------------
 
 Since late August 2026 after work, I have been working on a Purchase Ledger financial system called Purchase Web.  This is a personal project in order to re-learn various modern and old coding languages (graduated with my Computing degree in 1995), and utilising development tools. It is a basic stack configuration containing suppliers, purchases, payments, ledger, reports, settings, and an AI Assistant called Mara to assist in reporting via NLP.  I have nearly completed the full architecture in terms of connections through Flask backend and frontend.  The Supplier section is fully working in a basic fashion with CRUD operations which originally wrote to SQLite3, but now transitioned to using PostgreSQL. The basic stack currently utilises: Python | Flask | PostgreSQL | HTML | CSS | Jinja2 | JavaScript, using DevOps Visual Code | GitHub | Bash. I have duplicated my Purchase_Ledger folder and called it supplier-crud-technical-challenge, and have hashed out the Authorisation.py related code I was working on in App.py and other files that may be applicable to get suppliers ready for the challenge. I have decided to utilise the Supplier section and improvee  upon it.  Given the deadline and time I have I will try to:
 
@@ -14,7 +13,6 @@ Since late August 2026 after work, I have been working on a Purchase Ledger fina
 
 # ----------------------------------------
 # How to run it
-# ----------------------------------------
 
 I will send you my GitHub link for the repository supplier-crud-technical-challenge.
 In Visual Code open App.py and run it from the right facing triangle icon on the upper righthand side or in Bash and type python3 App.py.
@@ -22,12 +20,10 @@ In Visual Code open App.py and run it from the right facing triangle icon on the
 
 # ----------------------------------------
 # How it works
-# ----------------------------------------
 
 
 # ----------------------------------------
 # What you would improve with more time
-# ----------------------------------------
 
 Improvements for the future:
 
