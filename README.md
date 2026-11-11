@@ -14,7 +14,7 @@ For this Technical Challenge I have decided to utilise the Supplier section and 
 
 Improvements for the future:
   I did think about implementing a Cloud storage for the challenge, but having re-read the email it specifically asked for inputing code and
-  outputing that code in a presentable way for users. However, I have already set up and installed 'Superbase' app cloud storage and authorised it   
+  outputing that code in a presentable way for users. However, I have already set up and installed 'Superbase' app cloud storage and authorised it
   on GitHub for supplier-crud-technical-challenge repository. The code will ensure synchronisation between the database on the MacOs and in the 
   cloud. If there isn't a current connection the update will be queued until reconnected.
   
