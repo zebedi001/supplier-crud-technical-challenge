@@ -15,7 +15,6 @@ For this Technical Challenge I have decided to utilise the Supplier section and 
 Improvements for the future:
   I did think about implementing a Cloud storage for the challenge, but having re-read the email it specifically asked for inputing code and
   outputing that code in a presentable way for users. However, I have already set up and installed 'Superbase' app cloud storage and authorised it   
-  on GitHub for supplier-crud-technical-challenge repository. The code will ensure synchronisation between the database on the Macos and in the 
-  cloud. 
-  there is not current connection the update will be queued until reconnected. 
-  4. Incorporate an online Cloud storage, so when a supplier is added, amended or deleted, the PostgreSQL database in the cloud is also updated. I        intend to try and use synchronisation to ensure the update, even if a connection is not available at the time, and queued for update later. 
+  on GitHub for supplier-crud-technical-challenge repository. The code will ensure synchronisation between the database on the MacOs and in the 
+  cloud. If there isn't a current connection the update will be queued until reconnected.
+  
