@@ -9,7 +9,7 @@ from suppliers.accountsup import account_supplier_record, get_account_supplier_r
 from suppliers.addresssup import address_supplier_record, get_address_supplier_record
 from suppliers.amendsup import amend_supplier_record
 from suppliers.deletesup import delete_supplier_record
-
+from suppliers.searchsup import get_search_supplier_record
 
 def add_supplier_details(
     name, account, terms,
@@ -40,6 +40,12 @@ def get_account_details():
 def get_address_details():
     conn, cursor = supplier_database()
     rows = get_address_supplier_record(cursor)
+    conn.close()
+    return rows
+
+def get_search_supplier():
+    conn, cursor = supplier_database()
+    rows = get_search_supplier_record(cursor)
     conn.close()
     return rows
 

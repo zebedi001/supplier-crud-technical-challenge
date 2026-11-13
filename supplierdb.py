@@ -5,6 +5,7 @@ import psycopg
 
 from suppliers.accountsup import get_account_supplier_record
 from suppliers.addresssup import get_address_supplier_record
+from suppliers.searchsup import get_search_supplier_record
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -32,4 +33,9 @@ def get_address_details():
     conn.close()
     return rows
 
+def get_search_supplier():
+    conn, cursor = supplier_database()
+    rows = get_search_supplier_record(cursor)
+    conn.close()
+    return rows
 

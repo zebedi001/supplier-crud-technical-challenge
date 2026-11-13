@@ -34,4 +34,8 @@ addresssupButton.addEventListener("click", function() {
     window.location.href = "/address_details";
 });
 
+const searchsupButton = document.getElementById("search_supplier");
+searchsupButton.addEventListener("click", function() {
+    window.location.href = "/search_supplier";
+});
 

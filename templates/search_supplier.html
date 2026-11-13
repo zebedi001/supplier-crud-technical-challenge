@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Supplier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='sidebar.css') }}">
+</head>
+
+<body>
+    
+    <!-- 1. Divide screen into Sidebar + Main CONTENT -->
+    <div class="page-container">
+        
+        <!-- 2. Left Side Navigation Menu -->
+        {% include "sidebar_supplier.html" %}
+      
+        <!-- 3. Right Side Menu Content -->
+        <main class="main-content">
+            <h3>Search Supplier</h3><br>
+
+            {% if message %}
+            <p>{{ message }}</p>
+            {% endif %}
+
+
+            <!-- FIND SUPPLIER -->
+            <form action="search_supplier" method="GET">
+                
+                <div class="searchform-columns">
+
+                    <label>Supplier:</label>
+                    <input type="text" name="name">
+
+                </div>
+
+                <div>
+                    <br><br>    
+                    <button type="submit">Submit Id</button>
+                    <button type="button">Cancel</button>
+                </div>
+            
+            </form>
+
+
+            <!-- DISPLAY SEARCHED SUPPLIER -->
+            {% if rows %}.
+            <br><br><br>
+            <h3>Suppliers Found</h3><br>
+
+            <form action="/search_supplier" method="POST">
+
+                <div class="supplierform-columns">
+
+                <table cellspacing="35">
+                    <tr>
+                        <th>ID</th>
+                        <th>Supplier Name</th>
+                        <th>Account</th>
+                        <th>Terms</th>
+                        <th>Contact</th>
+                        <th>Number</th>
+                    </tr>
+    
+                {% for row in rows %}
+                    <tr>
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[1] }}</td>
+                        <td>{{ row[2] }}</td>
+                        <td>{{ row[3] }}</td>
+                        <td>{{ row[8] }}</td>
+                        <td>{{ row[9] }}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+
+            </div>
+
+        </form>
+
+            {% endif %}
+
+        </main>    
+    </div>
+
+</body>
+</html>

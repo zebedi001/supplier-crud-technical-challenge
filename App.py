@@ -14,7 +14,7 @@ import supplierdb
 from suppliers.addsup import add_supplier_record
 from suppliers.amendsup import get_amend_supplier_record, amend_supplier_record
 from suppliers.deletesup import get_delete_supplier_record, delete_supplier_record
-
+from suppliers.searchsup import get_search_supplier_record
 
 # ============================================================
 # SESSION SECURITY
@@ -242,6 +242,12 @@ def account_details():
 def address_details():
     rows = supplierdb.get_address_details()
     return render_template("address_details.html", rows=rows)
+
+# SUPPLIER SEARCH SUPPLIER
+@app.route("/search_supplier")
+def search_supplier():
+    rows = supplierdb.get_search_supplier()
+    return render_template("search_supplier.html", rows=rows)
 
 
 # ============================================================
