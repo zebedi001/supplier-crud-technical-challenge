@@ -3,13 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Ledger Activity</title>
+    <title>Ledger</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='sidebar.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='web_hotspots.css') }}">
 </head>
 
 <body>
-    
+
+    {% include "sidebar_controls.html" %}
+
     <!-- 1. Divide screen into Sidebar + Main CONTENT -->
     <div class="page-container">
         

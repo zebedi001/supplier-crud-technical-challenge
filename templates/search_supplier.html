@@ -9,6 +9,8 @@
 
 <body>
     
+    {% include "sidebar_controls.html" %}
+    
     <!-- 1. Divide screen into Sidebar + Main CONTENT -->
     <div class="page-container">
         
@@ -31,26 +33,19 @@
 
                     <label>Supplier:</label>
                     <input type="text" name="name">
+                    
+                    <button type="submit">Search</button>
 
                 </div>
-
-                <div>
-                    <br><br>    
-                    <button type="submit">Submit Id</button>
-                    <button type="button">Cancel</button>
-                </div>
-            
             </form>
 
 
             <!-- DISPLAY SEARCHED SUPPLIER -->
-            {% if rows %}.
+            {% if rows %}
             <br><br><br>
             <h3>Suppliers Found</h3><br>
 
-            <form action="/search_supplier" method="POST">
-
-                <div class="supplierform-columns">
+            <div class="supplierform-columns">
 
                 <table cellspacing="35">
                     <tr>
@@ -63,9 +58,14 @@
                     </tr>
     
                 {% for row in rows %}
+                    
                     <tr>
                         <td>{{ row[0] }}</td>
-                        <td>{{ row[1] }}</td>
+                        <td>
+                            <a href="/supplier_details/{{ row[0] }}">
+                                {{ row[1] }}
+                            </a>
+                        </td>
                         <td>{{ row[2] }}</td>
                         <td>{{ row[3] }}</td>
                         <td>{{ row[8] }}</td>
@@ -76,7 +76,7 @@
 
             </div>
 
-        </form>
+        
 
             {% endif %}
 

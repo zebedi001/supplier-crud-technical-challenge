@@ -11,7 +11,11 @@ h1, h2, h3, h4 {
 
 .addform-columns {
     display: grid;
-    grid-template-columns: max-content 1fr max-content 1fr;
+    grid-template-columns:
+        max-content
+        minmax(0, 1fr)
+        max-content
+        minmax(0, 1fr);
     gap: 15px 30px;
     max-width: 850px;
 }
@@ -20,27 +24,41 @@ h1, h2, h3, h4 {
     text-decoration: none;
 }
 
-/* Split the screen: 240px side menu, remaining space (1fr) for the form */
+/* Full-width layout with a collapsible sidebar */
 .page-container {
     display: grid;
-    grid-template-columns: 240px 1fr;
+    grid-template-columns: minmax(0, 1fr);
     min-height: 100vh;
 }
 
 /* Style your side column layout space */
 .side-menu {
-    background-color: black; /* A dark theme looks great for sidebars! */
-    color: white;
+    background-color: white;
+    color: black;
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    box-sizing: border-box;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.side-menu.is-open {
+    transform: translateX(0);
 }
 
 .side-menu h3 {
     margin: 0;
     padding-bottom: 10px;
-    border-bottom: 1px solid #4f5d73;
+    border-bottom: 1px solid black;
     font-size: 1.2rem;
 }
 
@@ -48,16 +66,17 @@ h1, h2, h3, h4 {
 .side-menu nav {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
 }
 
 .menu-btn {
-    color: white;
+    color:  black;
     text-decoration: none;
     padding: 2px 4px;
     border-radius: 1px;
-    background-color: #34495e;
-    transition: background 0.2s;
+    background-color: transparent;
+    border: none;
+    transition: background-color 0.2s;
 }
 
 .menu-btn:hover {
@@ -70,10 +89,18 @@ h1, h2, h3, h4 {
 
 /* Center your form contents nicely inside the main right-hand panel */
 .main-content {
-    padding: 40px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: white;
+    margin-left: 0;
+    transition: margin-left 0.3s ease;
+    min-width: 0;
+}
+
+.page-container.is-pinned .main-content {
+    margin-left: 240px;
 }
 
 .purchase-web-logo { 
@@ -82,4 +109,49 @@ h1, h2, h3, h4 {
     max-width: 440px !important;
     height: auto !important;
     margin: 20px auto; 
+}
+
+@media (max-width: 768px) {
+    .side-menu {
+        width: min(240px, 85vw);
+    }
+
+    .page-container.is-pinned .main-content {
+        margin-left: 0;
+    }
+
+    .main-content {
+        padding: 15px;
+        min-width: 0;
+    }
+}
+
+/* Responsive supplier forms */
+@media (max-width: 900px) {
+    .addform-columns {
+        grid-template-columns: max-content minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .addform-columns {
+        grid-template-columns: minmax(0, 1fr);
+        width: 100%;
+    }
+
+    .addform-columns input,
+    .addform-columns select,
+    .addform-columns textarea {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+.sidebar-trigger {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 100vh;
+    z-index: 1001;
 }

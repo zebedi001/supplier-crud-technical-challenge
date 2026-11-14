@@ -33,9 +33,9 @@ def get_address_details():
     conn.close()
     return rows
 
-def get_search_supplier():
+def get_search_supplier(supplier_name):
     conn, cursor = supplier_database()
-    rows = get_search_supplier_record(cursor)
+    rows, message = get_search_supplier_record(cursor, supplier_name)
     conn.close()
-    return rows
+    return rows, message
 
