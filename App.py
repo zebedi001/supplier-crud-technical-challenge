@@ -3,7 +3,6 @@
 # IMPORTS
 # ============================================================
 
-import os
 from flask import Flask, render_template, request
 
 # from flask_login import LoginManager, login_required
@@ -396,4 +395,4 @@ def aihome():
 # ============================================================
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000, use_reloader=False)
+    app.run(debug=True, port=5004, use_reloader=False)

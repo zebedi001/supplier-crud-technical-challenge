@@ -2,6 +2,7 @@
 # PYTHON
 
 import psycopg
+import os
 
 from suppliers.accountsup import get_account_supplier_record
 from suppliers.addresssup import get_address_supplier_record
@@ -9,10 +10,21 @@ from suppliers.searchsup import get_search_supplier_record
 
 from dotenv import load_dotenv
 load_dotenv()
+DB_MODE = os.getenv("DB_MODE", "local")
 
 def supplier_database():
     # CONNECT TO THE DATABASE
-    conn = psycopg.connect(host="localhost", dbname="supplier_crud", user="postgres")
+    if DB_MODE == "cloud":
+        conn = psycopg.connect(
+            host=os.getenv("SUPABASE_HOST"),
+            port=5432,
+            dbname="postgres",
+            user=os.getenv("SUPABASE_USER"),
+            password=os.getenv("SUPABASE_PASSWORD"),
+            sslmode="require"
+        )
+    else:
+        conn = psycopg.connect(host="localhost", dbname="supplier_crud", user="postgres")
 
     # CREATE A DATABASE CURSOR
     cursor = conn.cursor()
