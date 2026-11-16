@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Search Supplier</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='sidebar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='display_supplier.css') }}">
 </head>
 
 <body>
@@ -21,19 +22,19 @@
         <main class="main-content">
             <h3>Search Supplier</h3><br>
 
-            {% if message %}
+            {% if message and request.args.get('name') is not none %}
             <p>{{ message }}</p>
             {% endif %}
+
 
             <!-- FIND SUPPLIER -->
             <form action="search_supplier" method="GET">
 
-                <div class="searchform-columns">
-
-                    <label>Supplier:</label>
-                    <input type="text" name="name">
-
-                    <button type="submit">Search</button>
+                <div class="button-area">
+    
+                    <label>Supplier </label>
+                    <input type="text" name="name" placeholder="Search">
+                    <button type="submit">Submit</button>
 
                 </div>
             </form>
@@ -44,98 +45,49 @@
             <h3>Suppliers Found</h3><br>
 
             {% for row in rows %}
+           
+            <div class="searchform-columns" style="margin-bottom: 40px;">
+           
+                <label>Id </label>
+                <input type="number" name="supplier_id" value="{{ row[0] }}" readonly>
 
-            <div class="supplierform-columns">
+                <label>Name </label>
+                <input type="text" name="name" value="{{ row[1] }}" readonly>
 
-                <label>Id:</label>
-                <input
-                    type="number"
-                    name="supplier_id"
-                    value="{{ row[0] }}"
-                    readonly
-                >
+                <label>Account </label>
+                <input type="text" name="account" value="{{ row[2] }}" readonly>
 
-                <label>Name:</label>
-                <input
-                    type="text"
-                    name="name"
-                    value="{{ row[1] }}"
-                    readonly
-                >
+                <label>Terms </label>
+                <input type="number" name="terms" value="{{ row[3] }}" readonly>
 
-                <label>Account No:</label>
-                <input
-                    type="text"
-                    name="account"
-                    value="{{ row[2] }}"
-                    readonly
-                >
+                <label>Firstline </label>
+                <input type="text" name="street" value="{{ row[4] }}" readonly >
 
-                <br><br>
+                <label>Town </label>
+                <input type="text" name="town" value="{{ row[5] }}" readonly>
 
-                <label>Terms (Days):</label>
-                <input
-                    type="number"
-                    name="terms"
-                    value="{{ row[3] }}"
-                    readonly
-                >
+                <label>City </label>
+                <input type="text" name="city" value="{{ row[6] }}" readonly>
 
-                <label>First Line:</label>
-                <input
-                    type="text"
-                    name="street"
-                    value="{{ row[4] }}"
-                    readonly
-                >
+                <label>Postcode </label>
+                <input type="text" name="postcode" value="{{ row[7] }}" readonly>
 
-                <label>Town:</label>
-                <input
-                    type="text"
-                    name="town"
-                    value="{{ row[5] }}"
-                    readonly
-                >
+                <label>Contact </label>
+                <input type="text" name="contactname" value="{{ row[8] }}" readonly>
 
-                <br><br>
+                <label>Telephone</label>
+                <input type="text" name="contactnum" value="{{ row[9] }}" readonly>
 
-                <label>City:</label>
-                <input
-                    type="text"
-                    name="city"
-                    value="{{ row[6] }}"
-                    readonly
-                >
+                <label>Active </label>
+                <input type="boolean" name="is_active" value="{{ row[10] }}" readonly>
 
-                <label>Postcode:</label>
-                <input
-                    type="text"
-                    name="postcode"
-                    value="{{ row[7] }}"
-                    readonly
-                >
+                <label>Created </label>
+                <input type="timestamp" name="created_at" value="{{ row[11] }}" readonly>
 
-                <br><br>
-
-                <label>Contact Name:</label>
-                <input
-                    type="text"
-                    name="contactname"
-                    value="{{ row[8] }}"
-                    readonly
-                >
-
-                <label>Contact Number:</label>
-                <input
-                    type="text"
-                    name="contactnum"
-                    value="{{ row[9] }}"
-                    readonly
-                >
-
+                <label>Updated </label>
+                <input type="timestamp" name="updated_at" value="{{ row[12] }}" readonly>
+                
             </div>
-
-            <br><br>
 
             {% endfor %}
             {% endif %}

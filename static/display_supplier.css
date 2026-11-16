@@ -1,0 +1,51 @@
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+.addform-columns {
+    display: grid;
+    grid-template-columns: max-content 1fr max-content 1fr;
+    gap: 15px 30px;
+    max-width: 850px;
+}
+
+.amendform-columns {
+    display: grid;
+    grid-template-columns: max-content 1fr max-content 1fr;
+    gap: 15px 30px;
+    max-width: 850px;
+}
+
+.deleteform-columns {
+    display: grid;
+    grid-template-columns: max-content 1fr max-content 1fr;
+    gap: 15px 30px;
+    max-width: 850px;
+}
+
+.searchform-columns {
+    display: grid;
+    grid-template-columns: max-content 1fr max-content 1fr;
+    gap: 15px 30px;
+    max-width: 850px;
+}
+
+.supplier-menu a {
+    text-decoration: none;
+}
+
+.button-area {
+    width: 100%;
+    text-align: center;
+}
+
+input[name="name"]::placeholder { 
+    color: #aaa; 
+    opacity: 0.5; 
+    transition: opacity 0.3s ease; 
+}
+
+input[name="name"]:focus::placeholder { 
+    opacity: 0; 
+}

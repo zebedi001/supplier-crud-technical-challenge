@@ -241,12 +241,16 @@ def address_details():
     rows = supplierdb.get_address_details()
     return render_template("address_details.html", rows=rows)
 
+
 # SUPPLIER SEARCH SUPPLIER
 @app.route("/search_supplier")
 def search_supplier():
-    supplier_name = request.args.get("name", "").strip()
-    rows, message = supplierdb.get_search_supplier(supplier_name)
+    supplier_name = request.args.get("name")
+    if supplier_name is None:
+        return render_template("search_supplier.html", rows=[], message=None)
+    rows, message = supplierdb.get_search_supplier(supplier_name.strip())
     return render_template("search_supplier.html", rows=rows, message=message)
+
 
 
 # ============================================================

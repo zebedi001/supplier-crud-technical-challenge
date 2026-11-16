@@ -20,28 +20,38 @@
         <!-- 3. Right Side Menu Content -->
         <main class="main-content">
             <h3>Account Details</h3>
-
-        <table cellspacing="35">
-            <tr>
-                <th>ID</th>
-                <th>Supplier Name</th>
-                <th>Account</th>
-                <th>Terms</th>
-                <th>Contact</th>
-                <th>Number</th>
-            </tr>
-    
+        
+            <table cellspacing="60"> 
+                <tr>
+                    <th>ID</th>
+                    <th>Supplier</th>
+                    <th>Account</th>
+                    <th>Terms</th>
+                    <th>Contact</th>
+                    <th>Number</th>
+                    <th>Active</th>
+                    <th>Created</th>
+                    <th>Updated</th>
+                </tr>
+        
             {% for row in rows %}
-            <tr>
-                <td>{{ row[0] }}</td>
-                <td>{{ row[1] }}</td>
-                <td>{{ row[2] }}</td>
-                <td>{{ row[3] }}</td>
-                <td>{{ row[8] }}</td>
-                <td>{{ row[9] }}</td>
-            </tr>
+        
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td>{{ row[8] }}</td>
+                    <td>{{ row[9] }}</td>
+                    <td>{{ row[10] }}</td>
+                    <td>{{ row[11] }}</td>
+                    <td>{{ row[12] }}</td>
+                </tr>
+        
             {% endfor %}
         </table>
+            
+        
     </div>
 
 </body>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Create Supplier</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='sidebar.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='add_supplier.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='display_supplier.css') }}">
 </head>
 
 <body>
@@ -29,38 +29,38 @@
             <form action="/add_supplier" method="POST">
                 <div class="addform-columns">
             
-                    <label>Name: </label>
+                    <label>Name </label>
                     <input type="text" name="name">
             
-                    <label>Account No: </label>
+                    <label>Account </label>
                     <input type="text" name="account">
             
-                    <label>Terms (Days): </label>
+                    <label>Terms </label>
                     <input type="number" name="terms">
             
-                    <label>First Line: </label>
+                    <label>Firstline </label>
                     <input type="text" name="street">
             
-                    <label>Town: </label>
+                    <label>Town </label>
                     <input type="text" name="town">
 
-                    <label>City: </label>
+                    <label>City </label>
                     <input type="text" name="city">
             
-                    <label>Postcode: </label>
+                    <label>Postcode </label>
                     <input type="text" name="postcode">
             
-                    <label>Contact Name: </label>
+                    <label>Contact </label>
                     <input type="text" name="contactname">
             
-                    <label>Contact Number: </label>
+                    <label>Number </label>
                     <input type="text" name="contactnum">
             
                 </div>
                 
                 <div class="button-area">
                     <br><br>    
-                    <button type="submit">Submit Supplier</button>
+                    <button type="submit">Submit</button>
                     <button type="button">Cancel</button>
                 </div>
             
