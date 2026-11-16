@@ -1,314 +1,422 @@
-# supplier-crud-technical-challenge
-A Python Flask and PostgreSQL supplier management application demonstrating CRUD operations and local-to-cloud database synchronisation.
 
+# Supplier CRUD Technical Challenge
 
-1. What I Built and Why
-1.1 Background — Purchase Web
-Since late August 2026, I have been developing a personal financial management application called Purchase Web, working on the project outside my normal employment as a secondary school science teacher.
+A Python Flask and PostgreSQL supplier management application demonstrating CRUD operations, supplier search, responsive web design and cloud database integration.
 
-I graduated in 1995 with a BSc in Computing and Information Systems, following a two-year HND in Computing. Having subsequently pursued a career in education, I am now seeking to transition from teaching into software development and DevOps engineering.
+**GitHub Repository:** https://github.com/zebedi001/supplier-crud-technical-challenge
 
-I started Purchase Web to refresh my programming knowledge, revisit previously learned languages and gain practical experience with modern software development technologies, tools and engineering practices. The project also provides an opportunity to demonstrate my commitment to learning and developing the technical skills required for a new career.
+# --------------------
 
-The wider Purchase Web application is designed to manage suppliers, purchases, payments, ledgers and financial reports. It also includes plans for application settings, user authentication and an AI assistant named Mara, intended to support natural-language queries and reporting.
 
-The application uses a Python Flask backend with HTML, CSS, JavaScript and Jinja2 templates for its frontend. Supplier data was originally stored in SQLite3 before being migrated to PostgreSQL.
+## 1. What I Built and Why
 
-At the start of the EAS technical challenge, the Supplier section already supported basic Create, Read, Update and Delete (CRUD) operations. I therefore chose to use this existing functionality as the foundation for a smaller, standalone application that I could improve, test and explain within the challenge deadline.
-
-As the main improvement, and to demonstrate the challenge's input, processing and output requirements, I designed and implemented a supplier search option. This will allow a user to enter a full or partial supplier name, search the PostgreSQL database and display matching supplier records. The user can then select a supplier to view its details.
-----------------------------------------
-1.2 The Problem I Chose to Solve
-The existing Supplier section of Purchase Web allows users to view supplier account and address records, as well as add, amend and delete supplier information. However, finding a particular supplier requires the user to browse through the available records.
-
-Although the demonstration database contains only 25 suppliers, manually searching through a list would become increasingly inefficient as the number of suppliers grows.
+### 1.1 Background — Purchase Web
 
-To address this problem, I decided to introduce a supplier search facility that allows users to find suppliers by entering a full or partial supplier name.
+Since August 2026, I have been developing *Purchase Web*, a personal financial management application, to refresh my programming knowledge and develop practical software engineering skills.
 
-This improvement demonstrates the three main requirements of the EAS technical challenge:
-1. Input: The user enters a supplier name or the first few characters of a name into a search field.
-2. Processing: The Flask application receives the search request and queries the PostgreSQL database for matching supplier records.
-3. Output: The application displays a list of matching suppliers. The user can then select a supplier to view its details, including account and address information.
-The objective is to provide a straightforward, useful feature that improves the user experience while demonstrating how Python, Flask, PostgreSQL and Jinja2 work together to process user input and present meaningful results.
-Database Architecture and Future Development
-During initial development, the application used a local PostgreSQL database on my Mac. However, as Purchase Web is intended to become a downloadable application in the future, I have decided that a cloud-hosted PostgreSQL database would be a more appropriate long-term solution.
+I graduated in 1995 with a BSc in Computing and Information Systems, following a two-year HND in Computing. After pursuing a career in secondary science teaching, I am now seeking to transition into software development and DevOps engineering.
 
-A centralised cloud database would allow authorised users to access the same supplier records from different computers without needing to install and maintain a separate PostgreSQL database on each device.
+Purchase Web uses Python, Flask, PostgreSQL, HTML, CSS, JavaScript and Jinja2. Its wider design includes suppliers, purchases, payments, ledgers, reporting, authentication and an AI assistant named Mara.
 
-For the EAS technical challenge, I successfully connected the Flask application to a PostgreSQL database hosted by Supabase. The application can now select either the local or cloud database through the DB_MODE environment setting, without rewriting the supplier search or CRUD functionality.
+For the EAS technical challenge, I adapted the existing Supplier CRUD functionality into a standalone application and concentrated on three improvements.
 
-This provides an option for EAS reviewers to test the application using the cloud database, provided suitable configuration and securely supplied database credentials are available.
+### 1.2 The Problem I Chose to Solve
 
-The local PostgreSQL database has been retained for development and as an alternative configuration. The two databases are independent: selecting one does not update the other. Automatic synchronisation is not part of this implementation and may be considered as a future improvement.
+The original supplier management interface supported adding, viewing, amending and deleting suppliers, but locating a particular supplier required browsing existing records.
 
-This approach allows me to demonstrate the core input, processing and output requirements while exploring a database architecture that could support the future development of Purchase Web.
-----------------------------------------
-1.3 Technical Challenge Objectives and Priorities
-After reviewing the EAS technical challenge requirements, I decided to concentrate on improving the existing Supplier section of Purchase Web rather than attempting to develop an entirely new application within the available time.
+I implemented a search facility allowing users to enter a full or partial supplier name and retrieve matching records.
 
-I established three development priorities, ordered according to their importance to the challenge.
-Priority 1 — Supplier Search: Input, Processing and Output
-My primary objective was to design and implement a supplier search facility using Python, Flask and PostgreSQL.
+The feature demonstrates the challenge's central requirement:
 
-The user enters a full or partial supplier name, the application searches the database for matching records, and the results are displayed in a selectable list. Selecting a supplier displays its details.
+**Input → Processing → Output**
 
-This directly addresses the three core requirements of the EAS challenge: accepting input, processing that input and producing useful output.
-Priority 2 — Responsive Web Design and Navigation
-My second priority was to improve the presentation and usability of the existing application.
+- **Input:** The user enters a supplier name or part of a name.
+- **Processing:** Flask passes the search term to Python, which queries PostgreSQL.
+- **Output:** Jinja2 displays matching supplier records, including account, address and contact information.
 
-This includes improving the layout of the supplier pages, making the interface more responsive to different screen sizes and browser zoom levels, and refining the sidebar navigation.
+### 1.3 Technical Challenge Objectives
 
-I also intend to improve the positioning of the invisible navigation hotspots surrounding the Purchase Web spider graphic, so they remain aligned with their intended locations.
+**Priority 1 — Supplier Search: Completed**
 
-These improvements are intended to make the application easier to navigate and provide a more consistent experience across desktop, tablet and mobile screens.
-Priority 3 — Cloud Database Configuration
-My third priority was to investigate using Supabase to host a PostgreSQL database in the cloud. This objective was completed successfully.
+Implemented and tested full and partial supplier-name searching, including multiple matches and input validation.
 
-The Flask application now connects to either the local PostgreSQL database or the cloud-hosted database, according to its environment configuration, without changing the supplier search and CRUD functionality.
+**Priority 2 — Responsive Website and Navigation: Completed for tested layouts**
 
-The local database remains available for development, while the cloud database provides an additional option for future deployment and reviewer testing.
+Improved supplier page presentation, sidebar navigation and the eight invisible navigation hotspots surrounding the Mara spider graphic. The hotspots were tested successfully at 30%, 100% and 120% browser zoom.
 
-Cloud integration was an optional extension, undertaken after the core supplier search functionality was working. The connection and cloud CRUD operations have now been tested successfully.
-Managing Scope and Time
-I deliberately prioritised a smaller, functional application that I could explain and test rather than introducing unnecessary complexity.
+**Priority 3 — Supabase Cloud PostgreSQL: Completed**
 
-This approach reflects the EAS guidance that technical understanding, research, problem-solving and sensible engineering decisions are more important than the overall size of the project.
-----------------------------------------
-1.4 Technologies and Development Tools
-The Supplier CRUD Technical Challenge uses a combination of backend, frontend, database and development technologies. These were selected to support the existing Purchase Web architecture while providing opportunities to develop my technical knowledge and practical programming skills.
-Backend Technologies
-- Python 3.11.9: The main programming language used to implement application logic, supplier operations and database interactions.
-- Flask: A lightweight Python web framework used to handle HTTP requests, define application routes and connect the frontend to backend functionality.
-- Jinja2: Flask's templating engine, used to dynamically generate HTML pages and display supplier information returned from the database.
-- psycopg: A PostgreSQL database adapter used to execute SQL queries and retrieve supplier records.
-Frontend Technologies
-- HTML5: Provides the structure of the application's pages, forms and navigation.
-- CSS3: Controls the visual appearance, layout and responsive behaviour of the application.
-- JavaScript: Provides client-side interactions, including sidebar behaviour and navigation functionality.
-Database Technologies
-- PostgreSQL 16: The relational database management system used to store supplier account and address information.
-- SQLite3: The database system originally used during the early development of Purchase Web before migration to PostgreSQL.
-- Supabase: A cloud platform providing hosted PostgreSQL, now configured and tested as an alternative database for the Flask application.
-Development and Version Control Tools
-- Visual Studio Code: The main development environment used to write, edit and debug the application.
-- Git: Used to track changes to the source code and maintain a development history.
-- GitHub: Hosts the project repository and provides access to the source code and documentation for EAS reviewers.
-- Bash / macOS Terminal: Used to run Python scripts, execute PostgreSQL commands, manage files and perform Git operations.
-- python-dotenv: Used to load environment variables from a local .env file, allowing configuration values and database credentials to be kept separate from the application source code.
-Development Environment
-The application has been developed on a MacBook Air running macOS Big Sur 11.7.11, using Python 3.11.9 and PostgreSQL 16.
+Configured the application to connect to either local PostgreSQL or Supabase-hosted PostgreSQL. Transferred demonstration supplier records and successfully tested cloud CRUD operations.
 
-The project uses a Flask-based web architecture, separating the application's Python backend, HTML templates, CSS stylesheets, JavaScript files and PostgreSQL database interactions.
+### 1.4 Technologies and Development Tools
 
-This separation helps make the application easier to understand, maintain, test and extend.
-----------------------------------------
-1.5 Scope and Design Decisions
-For the EAS technical challenge, I decided to develop a standalone Supplier CRUD application based on the existing Supplier section of Purchase Web, rather than build an entirely new application from scratch.
+| Technology | Purpose |
+|---|---|
+| Python 3.11.9 | Application logic |
+| Flask | Web framework and routing |
+| Jinja2 | Dynamic HTML templates |
+| psycopg 3 | PostgreSQL database access |
+| PostgreSQL 16 | Relational database |
+| Supabase | Cloud-hosted PostgreSQL |
+| HTML5, CSS3, JavaScript | Frontend and navigation |
+| python-dotenv | Environment configuration |
+| Git and GitHub | Version control |
+| Visual Studio Code | Development environment |
+| macOS Big Sur | Development operating system |
 
-This decision allowed me to concentrate on developing new functionality, improving the user interface and investigating cloud database integration while working within the available time.
-Application Scope
-The application focuses on supplier management and includes:
-- Creating new supplier records.
-- Viewing supplier account and address information.
-- Amending existing supplier records.
-- Deleting supplier records.
-- Searching for suppliers using full or partial names.
-- Displaying matching search results and allowing the user to select an individual supplier.
-- Displaying supplier account and address details, including active/inactive status (is_active), record creation date (created_at) and last amendment date (updated_at) when a supplier is selected from the search results.
-The demonstration database contains 25 supplier records, providing a manageable dataset for testing and reviewing the application.
-Design Decisions
-1. Reusing the existing application architecture
+### 1.5 Scope and Design Decisions
 
-I retained the Python Flask backend, PostgreSQL database and existing HTML, CSS, JavaScript and Jinja2 components. This avoided unnecessary redevelopment and allowed me to focus on improving the existing application.
+The challenge focuses on supplier CRUD operations, supplier search, responsive navigation and cloud database access.
 
-2. Separating application functionality
+The original demonstration dataset contains 25 suppliers, including the fields `is_active`, `created_at` and `updated_at`.
 
-Supplier operations are organised into separate Python modules, with Flask routes connecting the frontend to the database functionality. This makes the code easier to understand, maintain and extend.
+Unfinished authentication and unrelated Purchase Web modules were excluded to keep the application focused and testable.
 
-3. Removing authentication from the challenge application
+Local PostgreSQL and Supabase are independent databases. **Automatic synchronisation is not implemented.**
 
-The original Purchase Web project includes authentication and user authorisation functionality under development. I temporarily disabled this functionality in the standalone technical challenge to avoid introducing unfinished features and unnecessary complexity.
+# --------------------
 
-Authentication and role-based access control remain planned improvements for the wider Purchase Web application.
 
-4. Retaining supplier information and audit fields
+## 2. How to Run the Application
 
-The PostgreSQL supplier records retain their account and address information, active/inactive status (is_active), creation date (created_at) and last-updated date (updated_at).
+### 2.1 Prerequisites
 
-These fields support supplier record management and provide a foundation for future auditing and reporting functionality.
+Reviewers require Python 3.11 or later, Git, a web browser and the project's Python dependencies.
 
-5. Configuring local and cloud database connections
+A local PostgreSQL installation is required only when using the local database configuration. Reviewers using Supabase instead need valid cloud database credentials and network access.
 
-I retained local PostgreSQL for development and configured Supabase as a cloud-hosted alternative.
+### 2.2 Downloading the Repository
 
-The implemented architecture allows the application to select its database connection through the DB_MODE setting in .env, without requiring changes to the supplier search or CRUD operations.
+Clone the GitHub repository:
 
-This supports testing in different environments and provides a foundation for future deployment. It does not automatically synchronise the two databases.
+`git clone https://github.com/zebedi001/supplier-crud-technical-challenge.git`
 
-6. Limiting additional functionality
+Enter the project directory:
 
-The wider Purchase Web application is intended to include modules for Purchases, Payments, Ledgers, Reports, Settings and the Mara AI Assistant. These modules have not yet been fully developed and remain planned future improvements to Purchase Web.
+`cd supplier-crud-technical-challenge`
 
-I deliberately excluded these unfinished modules from the standalone EAS technical challenge so that I could concentrate on the existing Supplier functionality, implement the new supplier search feature and improve the application's usability.
+Alternatively, download the repository using GitHub's **Code → Download ZIP** option.
 
-I also decided not to implement automatic database synchronisation at this stage, as it would introduce additional complexity beyond the main challenge requirements.
-Overall Approach
-My objective was to produce a manageable, functional application that demonstrates practical programming skills, technical understanding, problem-solving and sensible engineering decisions.
+### 2.3 Installing Python Dependencies
 
-By limiting the scope, I could concentrate on implementing and explaining the supplier search functionality, improving the user experience and researching technologies that could support future development.
-----------------------------------------
-2. How to Run the Application
-2.1 Prerequisites and Software Requirements
-The Supplier CRUD Technical Challenge is a Python Flask web application that uses PostgreSQL to store and retrieve supplier information.
+Create a virtual environment:
 
-Before running the application locally, the following software is required:
-- Python 3.11 or later: Used to run the Flask application and its backend modules. The application was developed using Python 3.11.9.
-- PostgreSQL 16: The relational database management system used to store supplier records. The application was developed and tested using PostgreSQL 16.
-- Git: Used to clone the project repository from GitHub.
-- A web browser: Such as Firefox, Chrome or Safari, to access the application's web interface.
-The application also requires several Python packages, including Flask, psycopg and python-dotenv. Installation of these dependencies is covered in Section 2.4.
-Development Environment
-The application was developed using Visual Studio Code on a MacBook Air running macOS Big Sur 11.7.11.
+`python3 -m venv .venv`
 
-Although developed on macOS, Flask and PostgreSQL are cross-platform technologies and can also be used on Windows and Linux, subject to the appropriate software installation and configuration.
-Database Requirement
-The application requires access to a PostgreSQL database containing the supplier table and its associated records.
+Activate it on macOS or Linux:
 
-The development database is named supplier_crud and contains 25 demonstration supplier records.
+`source .venv/bin/activate`
 
-Instructions for configuring the database connection are provided in Section 2.3.
-----------------------------------------
-2.2 Accessing the GitHub Repository
-The Supplier CRUD Technical Challenge source code and supporting documentation are hosted in a GitHub repository.
+Install dependencies:
 
-GitHub Repository:
+`python3 -m pip install -r requirements.txt`
 
-https://github.com/zebedi001/supplier-crud-technical-challenge
+The principal dependencies are Flask, psycopg 3 and python-dotenv.
 
-EAS reviewers can access the public repository directly through the link above to examine the application's source code, project structure, documentation and Git commit history.
+**Submission check:** Confirm that `requirements.txt` exists and contains the correct packages.
 
-The repository includes:
-- README.md: Explains what I built and why, how to run the application, how it works and potential future improvements.
-- RESEARCH.md: Documents technical research, problem-solving, resources consulted and lessons learned.
-- Python source files: Contain the Flask application, supplier operations and PostgreSQL database interactions.
-- HTML, CSS and JavaScript files: Provide the application's user interface, navigation and presentation.
-Cloning the Repository
+### 2.4 PostgreSQL Database Configuration
 
-Reviewers who wish to download and run the application locally can open a terminal and enter:
+The application supports two database configurations.
 
-git clone https://github.com/zebedi001/supplier-crud-technical-challenge.git
+| Setting | Local PostgreSQL | Supabase Cloud |
+|---|---|---|
+| Database | `supplier_crud` | `postgres` |
+| Host | `localhost` | Supabase session-pooler hostname |
+| Port | Local PostgreSQL port | `5432` |
+| Table | `suppliers` | `public.suppliers` |
+| Connection | Local PostgreSQL | SSL required |
+| Selection | `DB_MODE=local` | `DB_MODE=cloud` |
 
-Then navigate into the project directory:
+Database connection functionality is maintained in `supplierdb.py`.
 
-cd supplier-crud-technical-challenge
+### 2.5 Accessing Supabase Cloud PostgreSQL
 
-Alternatively, the source code can be downloaded using GitHub's Code → Download ZIP option.
+EAS reviewers can use the cloud database without installing PostgreSQL locally, provided they have valid credentials.
 
-The application requires Python dependencies and a configured PostgreSQL database before it can be executed. These requirements are explained in the following sections.
+**Step 1 — Obtain Cloud Credentials**
 
-Sensitive configuration information, including database passwords, must not be committed to the public repository.
-----------------------------------------
-2.3 PostgreSQL Database Configuration
-The Supplier CRUD Technical Challenge uses PostgreSQL as its relational database management system to store, retrieve and manage supplier information.
+The application requires the following Supabase PostgreSQL credentials:
 
-The application was initially developed using a locally installed PostgreSQL 16 database. I have since successfully configured a Supabase-hosted PostgreSQL database and verified that the Flask application can read and modify supplier records in the cloud.
+- `SUPABASE_HOST` — session-pooler hostname.
+- `SUPABASE_USER` — PostgreSQL session-pooler username.
+- `SUPABASE_PASSWORD` — database password.
 
-Local Database Configuration
+The connection uses port `5432` and SSL mode `require`.
 
-The existing development database is configured as follows:
-- Database system: PostgreSQL 16
-- Database name: supplier_crud
-- Database host: localhost
-- Database user: postgres
-- Database connection module: supplierdb.py
-- Python database adapter: psycopg (version 3)
-The local database contains 25 demonstration supplier records used to test the application's search and CRUD functionality.
+Credentials must be supplied securely by the project owner and must not be published in GitHub.
 
-Each supplier record contains account and address information, active/inactive status (is_active), creation timestamp (created_at) and last-updated timestamp (updated_at).
+**Step 2 — Configure the Environment**
 
-Database Connection and Application Architecture
+Create a file named `.env` in the project root directory.
 
-The application uses the Python psycopg library to establish a connection between the Flask backend and PostgreSQL.
+Enter the following settings, replacing the placeholders with valid credentials:
 
-Database connection functionality is maintained in supplierdb.py, allowing the supplier management modules to interact with the database.
+`DB_MODE=cloud`
 
-The application can connect to either local PostgreSQL or Supabase-hosted PostgreSQL using environment-based configuration. In supplierdb.py, the supplier_database() function checks DB_MODE: cloud selects the Supabase connection, while local selects the local database.
+`SUPABASE_HOST=your-supabase-pooler-host`
 
-This approach allows the existing supplier search and CRUD operations to work with the selected database without requiring changes to the application interface. It is a choice of connection, not a simultaneous connection or automatic synchronisation.
+`SUPABASE_USER=your-supabase-database-user`
 
-Supabase Cloud Database Integration
+`SUPABASE_PASSWORD=your-supabase-database-password`
 
-Supabase provides a cloud-hosted PostgreSQL database that can be accessed remotely through a secure database connection.
+Save the file. The `.env` file is excluded from GitHub using `.gitignore`.
 
-I created a Supabase project and transferred the original 25 demonstration supplier records from local PostgreSQL to the cloud database. The database table is public.suppliers; the cloud database name is postgres.
+**Step 3 — Start the Application**
 
-The Flask application can now retrieve and modify supplier records in Supabase. Reviewers using the cloud configuration do not need to install a local PostgreSQL server, but they do need the Python application, its dependencies, network access and valid database credentials.
+Run:
 
-The cloud connection and transfer were completed and verified. A direct database query returned 25 supplier records. I then used the Flask interface to amend supplier ID 5 and independently confirmed the change in Supabase while the local database remained unchanged. I also created a test supplier (ID 27), retrieved it, deleted it through Flask and verified in the Supabase SQL Editor that the deleted record no longer existed. These tests confirmed Create, Read, Update and Delete operations against the cloud database.
+`python3 App.py`
 
-Automatic synchronisation between local PostgreSQL and Supabase is not included in the current implementation.
+Open the local Flask address displayed in the terminal.
 
-Database Security and Environment Variables
+The application now uses Supabase PostgreSQL for supplier operations.
 
-Database connection credentials must be kept separate from the application's source code and must not be committed to the public GitHub repository.
+**Step 4 — Test the Cloud Connection**
 
-The project uses .gitignore to exclude local environment files, including .env.
+Open **Search Supplier** and enter a full or partial supplier name.
 
-The python-dotenv package loads environment variables from .env to configure local and cloud database connections. The implemented variables are DB_MODE, SUPABASE_HOST, SUPABASE_USER and SUPABASE_PASSWORD; local connection settings are retained separately. Supabase connections use the PostgreSQL session pooler on port 5432 with sslmode="require".
+The application should retrieve matching supplier records from Supabase.
 
-Cloud database access requires suitable credentials and permissions. These must be provided securely rather than embedded in publicly accessible source code. In particular, the Supabase database password must not be placed in the README, sample configuration, Git history or public repository.
+Reviewers with suitable database permissions can also test adding, amending and deleting demonstration records.
 
-Reviewer Access and Testing
+**Important:** Supabase hosts the PostgreSQL database, not the Flask website. The Flask application runs locally.
 
-My intended approach is to make the application straightforward for EAS reviewers to download, run and test.
+Cloud access requires valid credentials and an accessible Supabase project. Credentials should be provided privately to authorised reviewers.
 
-The application has been configured and tested against a Supabase-hosted PostgreSQL database initially populated with 25 demonstration supplier records.
+### 2.6 Using Local PostgreSQL Instead
 
-Reviewers with securely provided cloud database credentials can run the Flask application locally and retrieve supplier records directly from Supabase without installing PostgreSQL or manually creating the demonstration dataset. The Flask web server itself is not hosted on Supabase.
+To use the local development database, set:
 
-Reviewers will still need Python and the required application dependencies, together with an appropriately configured and secure method of accessing the cloud database. Cloud access is not publicly enabled simply because the GitHub repository is public.
+`DB_MODE=local`
 
-Local PostgreSQL will remain available as an alternative development and testing environment.
+The application expects a local PostgreSQL database named `supplier_crud`, containing the appropriate supplier table and records.
 
-This approach is intended to reduce the setup required for reviewers while demonstrating the use of both local and cloud-hosted relational databases.
+The original demonstration dataset contains 25 suppliers.
 
-Selecting the Database
+The repository includes `suppliers_export.sql` and `suppliers_import.csv`, prepared during database migration.
 
-The database selection is made in the local .env file:
-- Set DB_MODE=local to use the local PostgreSQL database (supplier_crud on localhost).
-- Set DB_MODE=cloud to use the Supabase-hosted PostgreSQL database. This requires SUPABASE_HOST, SUPABASE_USER and SUPABASE_PASSWORD to be configured with valid credentials.
-- Restart the Flask application after changing DB_MODE, because the setting is loaded when the application starts.
-The database credentials are not supplied in the public repository. The cloud connection is intended for authorised testing only; it should not use publicly shared administrative credentials.
+Restart Flask after changing `DB_MODE`.
 
-Demonstration Data and Migration Files
+### 2.7 Application Navigation
 
-The repository includes suppliers_export.sql and suppliers_import.csv, generated during preparation and transfer of the original 25 demonstration supplier records. These files document the migration process and may assist with preparing a local test database, subject to the table structure and import instructions. Subsequent cloud CRUD tests created additional records, so the current cloud dataset should not be assumed to contain exactly 25 rows.
+The application provides the following supplier functions:
 
+- Add Supplier
+- Amend Supplier
+- Delete Supplier
+- Account Details
+- Address Details
+- Search Supplier
 
+Navigation is available through the sidebar and Mara spider graphic.
 
+# --------------------
 
-# ----------------------------------------
 
+## 3. How the Application Works
 
+### 3.1 Application Architecture
 
+The application separates frontend, backend and database responsibilities.
 
+- **Frontend:** HTML, CSS, JavaScript and Jinja2 templates.
+- **Backend:** `App.py` and supplier management Python modules.
+- **Database:** `supplierdb.py` and PostgreSQL, accessed through psycopg 3.
 
+The database connection is selected using `DB_MODE`, allowing existing supplier operations to work with either PostgreSQL environment.
 
+### 3.2 Supplier Search — Input, Processing and Output
 
-# ----------------------------------------
+Supplier Search is the principal new feature developed for the technical challenge.
 
+**Input**
 
+The user opens `search_supplier.html` and enters a complete or partial supplier name.
 
+The HTML form submits the search using the HTTP GET method.
 
+**Processing**
 
+The `/search_supplier` route in `App.py` retrieves the input using `request.args.get("name")`.
 
-# ----------------------------------------
+The route passes the search term to `get_search_supplier()` in `supplierdb.py`.
 
+The function queries the selected PostgreSQL database for matching supplier names.
 
+**Output**
 
+Matching records are returned to Flask and rendered through Jinja2 in `search_supplier.html`.
 
+Results include supplier identification, account details, payment terms, address, contact information, active/inactive status and creation/update timestamps.
 
+Multiple matches are displayed separately.
 
+An empty submitted search displays a validation message, while opening the page initially does not.
 
+**Data Flow**
 
-# ----------------------------------------
+**HTML form → Flask route → Python function → PostgreSQL query → matching records → Jinja2 → browser output**
+
+### 3.3 Supplier CRUD Operations
+
+| Operation | Function |
+|---|---|
+| Create | Add a new supplier |
+| Read | View supplier details or search records |
+| Update | Amend an existing supplier |
+| Delete | Delete a supplier record |
+
+The existing CRUD functionality was retained from Purchase Web and tested against Supabase.
+
+### 3.4 Supplier Database Records
+
+Supplier records contain account, address and contact information.
+
+Additional fields include:
+
+- `is_active` — supplier status.
+- `created_at` — creation timestamp.
+- `updated_at` — last amendment timestamp.
+
+The original local dataset contains 25 demonstration suppliers. Cloud testing may have changed the number of cloud records.
+
+### 3.5 Responsive Website and Navigation
+
+The application includes a fixed-width hover sidebar and invisible navigation hotspots around the Mara spider graphic.
+
+Relevant frontend files include:
+
+- `index_main.html`
+- `index_supplier.html`
+- `web_hotspots.html`
+- `search_supplier.html`
+- `sidebar.css`
+- `web_hotspots.css`
+- `sidebar_control.js`
+
+The hotspots were repositioned to remain aligned with the spider graphic when browser zoom changes.
+
+All eight navigation links were tested successfully at 30%, 100% and 120% zoom.
+
+The Supplier Search page was also improved with clearer record spacing, search-field presentation and validation behaviour.
+
+Further physical mobile-device testing remains a future improvement.
+
+### 3.6 Supabase Cloud Integration
+
+The original 25 demonstration supplier records were transferred to Supabase PostgreSQL.
+
+The `supplier_database()` function selects the local or cloud connection according to `DB_MODE`.
+
+Cloud operations were successfully tested:
+
+- Retrieved existing supplier records.
+- Amended supplier ID 5 and verified the change in Supabase.
+- Confirmed the corresponding local record remained unchanged.
+- Created and retrieved a test supplier.
+- Deleted the test supplier and verified its removal using the Supabase SQL Editor.
+
+These tests confirmed cloud CRUD functionality and the independence of the two databases.
+
+### 3.7 Version Control and Documentation
+
+Git and GitHub were used to manage development changes.
+
+Supporting documentation includes:
+
+- `README.md` — setup instructions and architecture.
+- `RESEARCH.md` — technical investigation and problem-solving.
+- `AI.md` — AI assistance and verification.
+
+# --------------------
+
+
+## 4. Testing and Verification
+
+### 4.1 Supplier Search
+
+Tests confirmed that full and partial supplier names returned matching records, including multiple matches.
+
+Supplier account, address, contact and audit information was displayed.
+
+Empty-search validation and initial page-load behaviour were corrected and tested.
+
+### 4.2 Website Navigation
+
+The eight Mara navigation hotspots were tested at 30%, 100% and 120% browser zoom.
+
+Sidebar navigation and supplier page presentation were also examined.
+
+### 4.3 Cloud PostgreSQL
+
+Supabase connection, supplier retrieval, amendment, creation and deletion were tested successfully.
+
+Changes were independently verified through the Supabase SQL Editor.
+
+### 4.4 Final Submission Checks
+
+Before submission, confirm that:
+
+- The application starts correctly.
+- Required dependencies are documented.
+- Database credentials are excluded from Git.
+- The GitHub repository is public.
+- `README.md`, `RESEARCH.md` and `AI.md` are present.
+- Cloud access instructions are accurate and reviewer credentials can be supplied securely.
+
+# --------------------
+
+
+## 5. Challenges and Lessons Learned
+
+**Supplier Search:** Implementing the feature strengthened my understanding of HTML forms, Flask GET requests, Python functions, SQL queries and Jinja2 output.
+
+**Search Validation:** Distinguishing an initial page visit from an empty submitted search required changes to Flask route and template logic.
+
+**Responsive Navigation:** Correcting hotspot alignment required investigating CSS positioning and testing different browser zoom levels.
+
+**Supabase Integration:** Configuring remote PostgreSQL required researching database connections, SSL, environment variables, credential security and data migration.
+
+**Testing:** Independent verification through PostgreSQL and the Supabase SQL Editor helped confirm that application operations affected the intended database.
+
+**Scope Management:** Concentrating on three defined objectives made the project achievable within the challenge deadline.
+
+Further research and troubleshooting details are documented in `RESEARCH.md`.
+
+# --------------------
+
+
+## 6. Future Improvements
+
+Potential developments include:
+
+- Reintroducing authentication and role-based access control.
+- Investigating controlled local-to-cloud database synchronisation.
+- Hosting the Flask application for remote browser access.
+- Improving mobile responsiveness and accessibility.
+- Expanding input validation and database error handling.
+- Introducing automated testing.
+- Continuing development of Purchase Web's purchases, payments, ledgers and reporting modules.
+
+These features were deliberately excluded from the current challenge.
+
+# --------------------
+
+
+## 7. Conclusion
+
+The Supplier CRUD Technical Challenge builds upon an existing Python Flask application and demonstrates three completed objectives.
+
+**Supplier Search:** Implemented full and partial supplier-name searching using Flask, Python, PostgreSQL and Jinja2.
+
+**Responsive Web Design:** Improved supplier page presentation, sidebar navigation and Mara's eight navigation hotspots.
+
+**Supabase Cloud PostgreSQL:** Configured cloud database access, transferred demonstration records and verified CRUD functionality.
+
+The project demonstrates practical experience in Python development, web applications, relational databases, cloud configuration, Git, debugging, testing and technical documentation.
+
+It also provided valuable experience in prioritising functionality, researching unfamiliar technologies and managing development within a limited timeframe.
+
+
+# --------------------
