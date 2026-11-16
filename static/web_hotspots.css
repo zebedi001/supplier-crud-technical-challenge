@@ -43,55 +43,55 @@
 
 /* Fingertip - Main Menu */
 .web-hotspot.main {
-    top: 36%;
-    left: 54%;
+    top: 35%;
+    left: 36%;
 }
 
 
 /* West - Supplier Menu */
 .web-hotspot.supplier {
-    top: 40%;
-    left: 43%;
+    top: 39%;
+    left: 0%;
 }
 
 
 /* NorthWest - Purchases Menu */
 .web-hotspot.purchases {
-    top: 19%;
-    left: 48%;
+    top: 7%;
+    left: 18%;
 }
 
 
 /* North - Payment Menu */
 .web-hotspot.payments {
-    top: 11%;
-    left: 58.70%;
+    top: 0%;
+    left: 50%;
 }
 
 
 /* NorthEast - Ledger Menu */
 .web-hotspot.ledger {
-    top: 18.75%;
-    left: 69.25%;
+    top: 7%;
+    left: 82%;
 }
 
 
 /* East - Report Menu */
 .web-hotspot.reports {
-    top: 40%;
-    left: 74.75%;
+    top: 39%;
+    left: 100%;
 }
 
 
 /* South - Settings Menu */
 .web-hotspot.settings {
-    top: 68.75%;
-    left: 58.70%;
+    top: 97%;
+    left: 50%;
 }
 
 
 /* Mara - Mara AI Assistant */
 .web-hotspot.ai {
-    top: 44%;
-    left: 61%;
+    top: 47%;
+    left: 55%;
 }
