@@ -1,13 +1,8 @@
 
-/* CENTRE BACK BUTTON ON THE PAGE */
-.supplier-menu {
-    text-align: center;
-    font-size: 1rem;
-}
-
 h1, h2, h3, h4 {
     text-align: center;
 }
+
 
 .addform-columns {
     display: grid;
@@ -20,9 +15,11 @@ h1, h2, h3, h4 {
     max-width: 850px;
 }
 
+
 .supplier-menu a {
     text-decoration: none;
 }
+
 
 /* Full-width layout with a collapsible sidebar */
 .page-container {
@@ -30,6 +27,7 @@ h1, h2, h3, h4 {
     grid-template-columns: minmax(0, 1fr);
     min-height: 100vh;
 }
+
 
 /* Style your side column layout space */
 .side-menu {
@@ -40,7 +38,7 @@ h1, h2, h3, h4 {
     flex-direction: column;
     gap: 20px;
     position: fixed;
-    top: 0;
+    top: 30px;
     left: 0;
     width: 240px;
     height: 100vh;
@@ -51,9 +49,11 @@ h1, h2, h3, h4 {
     overflow-y: auto;
 }
 
+
 .side-menu.is-open {
     transform: translateX(0);
 }
+
 
 .side-menu h3 {
     margin: 0;
@@ -62,12 +62,14 @@ h1, h2, h3, h4 {
     font-size: 1.2rem;
 }
 
+
 /* Turn your navigation links into stacked button styles */
 .side-menu nav {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
+
 
 .menu-btn {
     color:  black;
@@ -79,13 +81,17 @@ h1, h2, h3, h4 {
     transition: background-color 0.2s;
 }
 
+
 .menu-btn:hover {
-    background-color: #1abc9c; /* Highlights teal on hover */
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 17px;
 }
 
 .menu-btn.active {
     background-color: #1abc9c; /* Highlights the active page */
 }
+
 
 /* Center your form contents nicely inside the main right-hand panel */
 .main-content {
@@ -97,19 +103,15 @@ h1, h2, h3, h4 {
     margin-left: 0;
     transition: margin-left 0.3s ease;
     min-width: 0;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
+
 
 .page-container.is-pinned .main-content {
     margin-left: 240px;
 }
 
-.purchase-web-logo { 
-    display:block;
-    width: 100% !important;
-    max-width: 440px !important;
-    height: auto !important;
-    margin: 20px auto; 
-}
 
 @media (max-width: 768px) {
     .side-menu {
@@ -126,12 +128,14 @@ h1, h2, h3, h4 {
     }
 }
 
+
 /* Responsive supplier forms */
 @media (max-width: 900px) {
     .addform-columns {
         grid-template-columns: max-content minmax(0, 1fr);
     }
 }
+
 
 @media (max-width: 480px) {
     .addform-columns {
@@ -147,9 +151,10 @@ h1, h2, h3, h4 {
     }
 }
 
+
 .sidebar-trigger {
     position: fixed;
-    top: 0;
+    top: 10px;
     left: 0;
     width: 12px;
     height: 100vh;

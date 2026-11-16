@@ -8,15 +8,15 @@
 </head>
 
 <body>
-    
+
     {% include "sidebar_controls.html" %}
-    
+
     <!-- 1. Divide screen into Sidebar + Main CONTENT -->
     <div class="page-container">
-        
+
         <!-- 2. Left Side Navigation Menu -->
         {% include "sidebar_supplier.html" %}
-      
+
         <!-- 3. Right Side Menu Content -->
         <main class="main-content">
             <h3>Search Supplier</h3><br>
@@ -25,62 +25,122 @@
             <p>{{ message }}</p>
             {% endif %}
 
-
             <!-- FIND SUPPLIER -->
             <form action="search_supplier" method="GET">
-                
+
                 <div class="searchform-columns">
 
                     <label>Supplier:</label>
                     <input type="text" name="name">
-                    
+
                     <button type="submit">Search</button>
 
                 </div>
             </form>
 
-
-            <!-- DISPLAY SEARCHED SUPPLIER -->
+            <!-- DISPLAY SEARCHED SUPPLIERS -->
             {% if rows %}
             <br><br><br>
             <h3>Suppliers Found</h3><br>
 
+            {% for row in rows %}
+
             <div class="supplierform-columns">
 
-                <table cellspacing="35">
-                    <tr>
-                        <th>ID</th>
-                        <th>Supplier Name</th>
-                        <th>Account</th>
-                        <th>Terms</th>
-                        <th>Contact</th>
-                        <th>Number</th>
-                    </tr>
-    
-                {% for row in rows %}
-                    
-                    <tr>
-                        <td>{{ row[0] }}</td>
-                        <td>
-                            <a href="/supplier_details/{{ row[0] }}">
-                                {{ row[1] }}
-                            </a>
-                        </td>
-                        <td>{{ row[2] }}</td>
-                        <td>{{ row[3] }}</td>
-                        <td>{{ row[8] }}</td>
-                        <td>{{ row[9] }}</td>
-                    </tr>
-                {% endfor %}
-                </table>
+                <label>Id:</label>
+                <input
+                    type="number"
+                    name="supplier_id"
+                    value="{{ row[0] }}"
+                    readonly
+                >
+
+                <label>Name:</label>
+                <input
+                    type="text"
+                    name="name"
+                    value="{{ row[1] }}"
+                    readonly
+                >
+
+                <label>Account No:</label>
+                <input
+                    type="text"
+                    name="account"
+                    value="{{ row[2] }}"
+                    readonly
+                >
+
+                <br><br>
+
+                <label>Terms (Days):</label>
+                <input
+                    type="number"
+                    name="terms"
+                    value="{{ row[3] }}"
+                    readonly
+                >
+
+                <label>First Line:</label>
+                <input
+                    type="text"
+                    name="street"
+                    value="{{ row[4] }}"
+                    readonly
+                >
+
+                <label>Town:</label>
+                <input
+                    type="text"
+                    name="town"
+                    value="{{ row[5] }}"
+                    readonly
+                >
+
+                <br><br>
+
+                <label>City:</label>
+                <input
+                    type="text"
+                    name="city"
+                    value="{{ row[6] }}"
+                    readonly
+                >
+
+                <label>Postcode:</label>
+                <input
+                    type="text"
+                    name="postcode"
+                    value="{{ row[7] }}"
+                    readonly
+                >
+
+                <br><br>
+
+                <label>Contact Name:</label>
+                <input
+                    type="text"
+                    name="contactname"
+                    value="{{ row[8] }}"
+                    readonly
+                >
+
+                <label>Contact Number:</label>
+                <input
+                    type="text"
+                    name="contactnum"
+                    value="{{ row[9] }}"
+                    readonly
+                >
 
             </div>
 
-        
+            <br><br>
 
+            {% endfor %}
             {% endif %}
 
-        </main>    
+        </main>
     </div>
 
 </body>

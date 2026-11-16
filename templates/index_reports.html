@@ -19,10 +19,13 @@
         {% include "sidebar_reports.html" %}
       
         <!-- 3. Right Side Menu Content -->
-        <main class="main-content">
-            {% include "main_content_logo.html" %}
-            {% include "web_hotspots.html" %}
+         <main class="main-content">
+            <div class="logo-hotspot-container">
+                {% include 'main_content_logo.html' %}
+                {% include 'web_hotspots.html' %}
+            </div>
         </main>
+        
     </div>
 
 </body>

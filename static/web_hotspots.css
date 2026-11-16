@@ -1,9 +1,21 @@
+
+.purchase-web-logo { 
+    display:block;
+    width: 100% !important;
+    max-width: 440px !important;
+    height: auto !important;
+    margin: 20px auto;
+}
+
+
 .logo-hotspot-container { 
     position: relative; 
     width: 100%; 
     max-width: 440px; 
-    margin: 20px auto; 
+    margin: 0 auto; 
+    transform: translateY(60px);
 }
+
 
 .logo-hotspot-container .purchase-web-logo { 
     display: block; 
@@ -17,6 +29,8 @@
 /* Shared styling for all web hotspots */
 .web-hotspot {
     position: absolute;
+    width: 11.36%;
+    aspect-ratio: 1 / 1;
     display: block;
     border-radius: 40%;
     transform: translate(-50%, -50%);
@@ -26,66 +40,58 @@
     cursor: pointer;
 }
 
+
 /* Fingertip - Main Menu */
 .web-hotspot.main {
     top: 36%;
     left: 54%;
-    width: 50px;
-    height: 50px;
 }
+
 
 /* West - Supplier Menu */
 .web-hotspot.supplier {
     top: 40%;
     left: 43%;
-    width: 50px;
-    height: 50px;
 }
+
 
 /* NorthWest - Purchases Menu */
 .web-hotspot.purchases {
     top: 19%;
     left: 48%;
-    width: 50px;
-    height: 50px;
 }
+
 
 /* North - Payment Menu */
 .web-hotspot.payments {
     top: 11%;
     left: 58.70%;
-    width: 50px;
-    height: 50px;
 }
+
 
 /* NorthEast - Ledger Menu */
 .web-hotspot.ledger {
     top: 18.75%;
     left: 69.25%;
-    width: 50px;
-    height: 50px;
 }
+
 
 /* East - Report Menu */
 .web-hotspot.reports {
     top: 40%;
     left: 74.75%;
-    width: 50px;
-    height: 50px;
 }
+
 
 /* South - Settings Menu */
 .web-hotspot.settings {
-    top: 78.75%;
+    top: 68.75%;
     left: 58.70%;
-    width: 50px;
-    height: 50px;
 }
+
 
 /* Mara - Mara AI Assistant */
 .web-hotspot.ai {
     top: 44%;
     left: 61%;
-    width: 50px;
-    height: 50px;
 }
