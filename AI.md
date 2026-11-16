@@ -455,3 +455,109 @@ Changes should be implemented incrementally and tested against the existing Post
 **End of AI Development Log — 14 November 2026**
 
 
+November 16th------------------
+
+OKAY. i did amend instead - changed Plunch to Punch and Maunders to Saunders in id 9, whats the sql query to find this
+
+Brilliant, Debi! 😁💙 That's an excellent test because you've amended an existing record through Flask.
+
+In the Supabase SQL Editor, enter:
+
+SELECT * FROM public.suppliers WHERE id = 9;
+
+Then click Run.
+
+Look for your two changes: Plunch → Punch and Maunders → Saunders.
+
+If both changes appear in Supabase, we've confirmed that your Flask application successfully updated the cloud database!
+
+Show me the result! 🤟
+User attachment
+all done and bazinga
+
+BAZINGA!!! 💥🤣🎉
+
+DEBI, WE'VE GOT IT!!
+
+I've checked your Supabase SQL Editor screenshot, and the results show:
+
+Supplier ID 9 — Jill's Catering
+Verified
+
+Street
+
+677 Punch Lane 
+
+Contact
+
+Jill Saunders 
+
+Database
+
+Supabase PostgreSQL
+
+You amended those two fields through your Flask application, then independently queried the Supabase database and found both changes.
+
+That confirms your Flask application successfully updated the cloud PostgreSQL database. No need for temporary diagnostic code!
+
+It also provides strong evidence that your new database password is working.
+
+And you've demonstrated something valuable for EAS: application input → Python/Flask processing → cloud PostgreSQL update → SQL verification.
+
+Save that screenshot, my friend. It's excellent evidence for your technical challenge.
+
+Now you can get on with your final testing and screenshots. You've earned that Bazinga! 💙🤟
+
+OKAY. i did amend instead - changed Plunch to Punch and Maunders to Saunders in id 9, whats the sql query to find this
+
+Brilliant, Debi! 😁💙 That's an excellent test because you've amended an existing record through Flask.
+
+In the Supabase SQL Editor, enter:
+
+SELECT * FROM public.suppliers WHERE id = 9;
+
+Then click Run.
+
+Look for your two changes: Plunch → Punch and Maunders → Saunders.
+
+If both changes appear in Supabase, we've confirmed that your Flask application successfully updated the cloud database!
+
+Show me the result! 🤟
+User attachment
+all done and bazinga
+
+BAZINGA!!! 💥🤣🎉
+
+DEBI, WE'VE GOT IT!!
+
+I've checked your Supabase SQL Editor screenshot, and the results show:
+
+Supplier ID 9 — Jill's Catering
+Verified
+
+Street
+
+677 Punch Lane 
+
+Contact
+
+Jill Saunders 
+
+Database
+
+Supabase PostgreSQL
+
+You amended those two fields through your Flask application, then independently queried the Supabase database and found both changes.
+
+That confirms your Flask application successfully updated the cloud PostgreSQL database. No need for temporary diagnostic code!
+
+It also provides strong evidence that your new database password is working.
+
+And you've demonstrated something valuable for EAS: application input → Python/Flask processing → cloud PostgreSQL update → SQL verification.
+
+Save that screenshot, my friend. It's excellent evidence for your technical challenge.
+
+Now you can get on with your final testing and screenshots. You've earned that Bazinga! 💙🤟
+
+
+
